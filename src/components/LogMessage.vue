@@ -10,23 +10,27 @@
 
 <script lang="ts" setup>
 import {onMounted, ref} from "vue";
+// @ts-ignore
 import JsonViewer from '../lib/json-viewer/json-viewer.js'
 let props = defineProps(['message']
 )
-const logViewer = ref(null)
-const messageType = ref(null)
+const logViewer = ref<HTMLElement | null>(null)
+const messageType = ref<string | object |number | [] |null >(null)
 onMounted(() => {
-  messageType.value = typeof props.message
-  switch (typeof props.message) {
-    case 'object':
-      logViewer.value.innerHTML = '';
+  if(messageType.value && logViewer.value){
+    messageType.value = typeof props.message
+    switch (typeof props.message) {
+      case 'object':
+        logViewer.value.innerHTML = '';
 
-      new JsonViewer(props.message, logViewer.value)
-      break;
-    case 'string':
-     logViewer.value.innerHTML = props.message.toString().trim();
-      break;
+        new JsonViewer(props.message, logViewer.value)
+        break;
+      case 'string':
+        logViewer.value.innerHTML = props.message.toString().trim();
+        break;
+    }
   }
+
 })
 </script>
 <style lang="scss">

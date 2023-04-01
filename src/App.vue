@@ -2,13 +2,23 @@
 import {onMounted, ref} from "vue";
 import LogMessage from "@/components/LogMessage.vue";
 
-const logs = ref([])
+type Log = {
+  client: {
+    id: string,
+    color: string,
+    name: string
+  },
+  log: string [],
+  date: string,
+  id: string
+}
+const logs = ref<Log[]>([])
 const nightMode = ref(false)
 onMounted(() => {
   const eventSource = new EventSource('http://localhost:8090/api/logs/watch');
   eventSource.onmessage = function (event) {
     const log = JSON.parse(event.data)
-    logs.value.push(log)
+    logs.value.push(log as Log)
   }
 })
 

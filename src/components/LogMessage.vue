@@ -17,7 +17,7 @@ let props = defineProps(['message']
 const logViewer = ref<HTMLElement | null>(null)
 const messageType = ref<string | object |number | [] |null >(null)
 onMounted(() => {
-  if(messageType.value && logViewer.value){
+  if(logViewer.value){
     messageType.value = typeof props.message
     switch (typeof props.message) {
       case 'object':
@@ -30,7 +30,6 @@ onMounted(() => {
         break;
     }
   }
-
 })
 </script>
 <style lang="scss">

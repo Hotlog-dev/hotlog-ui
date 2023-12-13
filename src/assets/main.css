@@ -27,9 +27,20 @@ html,body, #app{
 body.night{
     background: var(--hotlog-background);
     color: var(--hotlog-log-text);
-    --hotlog-background: #222831;
-    --hotlog-log-background:#1f2330;
-    --hotlog-log-text:#EEEEEE;
+    --hotlog-background: #131023;
+    --hotlog-log-background:#18142C;
+    --hotlog-log-text:#dcf0ff;
+    /*color: #dcf0ff;*/
+    letter-spacing: 0.05rem;
+}
+body.night .logo{
+    filter: brightness(10);
+}
+.bg-background{
+    background: var(--hotlog-background);
+}
+.bg-log-background{
+    background: var(--hotlog-log-background);
 }
 .hotlog--nav{
     background-color: var(--hotlog-background);

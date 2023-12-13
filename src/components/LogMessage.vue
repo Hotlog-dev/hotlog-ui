@@ -1,5 +1,5 @@
 <template>
-  <div class="hotlog--log">
+  <div class="hotlog--log ">
     <div :class="`lsn-type--${messageType}`" class="typeof-log">{{ messageType }}</div>
     <div :class="`lsn-type--${messageType}`" ref="log-value" class="valueof-log">
       <div ref="logViewer" class="log-viewer">
@@ -28,6 +28,9 @@ onMounted(() => {
       case 'string':
         logViewer.value.innerHTML = props.message.toString().trim();
         break;
+      default:
+        logViewer.value.innerHTML = props.message.toString().trim();
+        break;
     }
   }
 })
@@ -35,10 +38,12 @@ onMounted(() => {
 <style lang="scss">
 .hotlog--log {
   display: flex;
-  align-items: center;
+  align-items: start;
+  height: 100%;
+  justify-content: center;
   color: var(--hotlog-log-text);
   min-height: 40px;
-  padding: 5px 10px;
+  //padding: 5px 10px;
 
   &.group-hightlight {
     background: #151823;

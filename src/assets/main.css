@@ -34,7 +34,7 @@ body.night{
     letter-spacing: 0.05rem;
 }
 body.night .logo{
-    filter: brightness(10);
+    /*filter: brightness(10);*/
 }
 .bg-background{
     background: var(--hotlog-background);
@@ -51,4 +51,21 @@ body.night .logo{
 }
 .hotlog--log-container{
     border-bottom: 1px solid var(--hotlog-log-background);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: lightgray;
+    border-radius: 10px;
 }

@@ -151,9 +151,9 @@ function setClientFilter(client: Client|null) {
           </p>
         </div>
       </div>
-      <div class="w-full h-full  overflow-y-auto overflow-x-hidden p-3  flex flex-col gap-4 rounded-md "
+      <div class="w-3/4 h-full  overflow-y-auto overflow-x-hidden p-3  flex flex-col gap-4 rounded-md "
            v-if="logs.length > 0">
-        <div v-for="log in filteredLogs" :key="log.id" class="flex bg-background py-2 rounded-md w-full items-start gap-8">
+        <div v-for="log in filteredLogs" :key="log.id" class="flex bg-background shadow-sm border-gray-100 py-2 rounded-md w-full items-start gap-8">
           <div class="w-full flex items-start gap-16 px-4 py-2">
             <div class="flex gap-2">
               <div class="w-4 h-4 rounded-sm" :style="`background: ${log.client.color}`"></div>
